@@ -54,11 +54,22 @@ class NetherWartPlant extends Flowable{
 	}
 
 	public function onRandomTick() : void{
-		if($this->age < self::MAX_AGE && mt_rand(0, 10) === 0){ //Still growing
-			$block = clone $this;
-			$block->age++;
-			BlockEventHelper::grow($this, $block, null);
-		}
+		if($this->age < self::MAX_AGE) {
+        	$growthChance = mt_rand(0, 10);
+
+        	// Vérifiez si le bloc en dessous est une table de cartographie
+        	$blockBelow = $this->getSide(Facing::DOWN);
+        	if ($blockBelow->getTypeId() === BlockTypeIds::TUFF) {
+            	// Augmentez les chances de croissance si sur une table de cartographie
+            	$growthChance = mt_rand(0, 5); // Diviser par 2 pour doubler les chances de croissance
+        	}
+
+        	if ($growthChance === 0) {
+            	$block = clone $this;
+				$block->age++;
+				BlockEventHelper::grow($this, $block, null);
+        	}
+    	}
 	}
 
 	public function getDropsForCompatibleTool(Item $item) : array{
