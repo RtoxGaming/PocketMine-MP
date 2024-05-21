@@ -37,9 +37,17 @@ class NetherWartPlant extends Flowable{
 
 	public const MAX_AGE = 3;
 
+
 	private function canBeSupportedAt(Block $block) : bool{
-		return $block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::SOUL_SAND;
+		if ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::SOUL_SAND) {
+			return true;
+		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::TUFF) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
 
 	public function ticksRandomly() : bool{
 		return $this->age < self::MAX_AGE;
