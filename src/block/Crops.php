@@ -73,7 +73,7 @@ abstract class Crops extends Flowable{
 	}
 
 	public function onRandomTick() : void{
-		if($this->age < self::MAX_AGE && CropGrowthHelper::canGrow($this)){
+		if($this->age < self::MAX_AGE && mt_rand(0, 2) === 1){
 			$block = clone $this;
 			++$block->age;
 			BlockEventHelper::grow($this, $block, null);
