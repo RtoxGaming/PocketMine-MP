@@ -41,7 +41,13 @@ abstract class Crops extends Flowable{
 	public const MAX_AGE = 7;
 
 	private function canBeSupportedAt(Block $block) : bool{
-		return $block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::FARMLAND;
+		if ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::FARMLAND) {
+			return true;
+		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::CARTOGRAPHY_TABLE) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public function onInteract(Item $item, int $face, Vector3 $clickVector, ?Player $player = null, array &$returnedItems = []) : bool{
