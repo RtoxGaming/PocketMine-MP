@@ -80,7 +80,7 @@ abstract class Crops extends Flowable{
         	$blockBelow = $this->getSide(Facing::DOWN);
         	if ($blockBelow->getTypeId() === BlockTypeIds::CARTOGRAPHY_TABLE) {
             	// Augmentez les chances de croissance si sur une table de cartographie
-            	$growthChance /= 2; // Diviser par 2 pour doubler les chances de croissance
+            	$growthChance = mt_rand(0, 1); // Diviser par 2 pour doubler les chances de croissance
         	}
 
         	if ($growthChance === 1) {
