@@ -41,7 +41,7 @@ class NetherWartPlant extends Flowable{
 	private function canBeSupportedAt(Block $block) : bool{
 		if ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::SOUL_SAND) {
 			return true;
-		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::PODZOL) {
+		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::TUFF) {
 			return true;
 		} else {
 			return false;
@@ -59,7 +59,7 @@ class NetherWartPlant extends Flowable{
 
         	// Vérifiez si le bloc en dessous est une table de cartographie
         	$blockBelow = $this->getSide(Facing::DOWN);
-        	if ($blockBelow->getTypeId() === BlockTypeIds::PODZOL) {
+        	if ($blockBelow->getTypeId() === BlockTypeIds::TUFF) {
             	// Augmentez les chances de croissance si sur une table de cartographie
             	$growthChance = mt_rand(0, 5); // Diviser par 2 pour doubler les chances de croissance
         	}
