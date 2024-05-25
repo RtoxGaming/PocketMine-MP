@@ -43,7 +43,7 @@ abstract class Crops extends Flowable{
 	private function canBeSupportedAt(Block $block) : bool{
 		if ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::FARMLAND) {
 			return true;
-		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::TUFF) {
+		} elseif ($block->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::PODZOL) {
 			return true;
 		} else {
 			return false;
@@ -78,7 +78,7 @@ abstract class Crops extends Flowable{
 
         	// Vérifiez si le bloc en dessous est une table de cartographie
         	$blockBelow = $this->getSide(Facing::DOWN);
-        	if ($blockBelow->getTypeId() === BlockTypeIds::TUFF) {
+        	if ($blockBelow->getTypeId() === BlockTypeIds::PODZOL) {
             	// Augmentez les chances de croissance si sur une table de cartographie
             	$growthChance = mt_rand(0, 1); // Diviser par 2 pour doubler les chances de croissance
         	}
