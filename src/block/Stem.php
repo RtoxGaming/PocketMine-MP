@@ -75,9 +75,11 @@ abstract class Stem extends Crops{
 			
 				$facing = Facing::HORIZONTAL[array_rand(Facing::HORIZONTAL)];
 				$side = $this->getSide($facing);
+				if($side->getTypeId() === BlockTypeIds::AIR && ($side->getSide(Facing::DOWN)->hasTypeTag(BlockTypeTags::DIRT) || $side->getSide(Facing::DOWN)->getTypeId() === BlockTypeIds::TUFF)){
 					if(BlockEventHelper::grow($side, $grow, null)){
 						$this->position->getWorld()->setBlock($this->position, $this->setFacing($facing));
 					}
+				}
 			}
 		}
 	}
