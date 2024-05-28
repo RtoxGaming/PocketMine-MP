@@ -62,7 +62,7 @@ class SweetBerryBush extends Flowable{
 	 * @deprecated
 	 */
 	protected function canBeSupportedBy(Block $block) : bool{
-		return $block->getTypeId() !== BlockTypeIds::FARMLAND && //bedrock-specific thing (bug?)
+		return $block->getTypeId() !== BlockTypeIds::FARMLAND && $block->getTypeId() === BlockTypeIds::TUFF && //bedrock-specific thing (bug?)
 			($block->hasTypeTag(BlockTypeTags::DIRT) || $block->hasTypeTag(BlockTypeTags::MUD));
 	}
 
