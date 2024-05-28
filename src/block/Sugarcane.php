@@ -87,6 +87,7 @@ class Sugarcane extends Flowable{
 	private function canBeSupportedAt(Block $block) : bool{
 		$supportBlock = $block->getSide(Facing::DOWN);
 		return $supportBlock->hasSameTypeId($this) ||
+			$supportBlock->getTypeId() === BlockTypeIds::TUFF ||
 			$supportBlock->hasTypeTag(BlockTypeTags::MUD) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::DIRT) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::SAND);
