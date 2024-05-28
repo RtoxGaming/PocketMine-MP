@@ -127,6 +127,7 @@ class Bamboo extends Transparent{
 		return
 			$supportBlock->hasSameTypeId($this) ||
 			$supportBlock->getTypeId() === BlockTypeIds::GRAVEL ||
+			$supportBlock->getTypeId() === BlockTypeIds::TUFF ||
 			$supportBlock->hasTypeTag(BlockTypeTags::DIRT) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::MUD) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::SAND);
