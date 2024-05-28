@@ -56,6 +56,7 @@ final class BambooSapling extends Flowable{
 		$supportBlock = $block->getSide(Facing::DOWN);
 		return
 			$supportBlock->getTypeId() === BlockTypeIds::GRAVEL ||
+			$supportBlock->getTypeId() === BlockTypeIds::TUFF ||
 			$supportBlock->hasTypeTag(BlockTypeTags::DIRT) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::MUD) ||
 			$supportBlock->hasTypeTag(BlockTypeTags::SAND);
