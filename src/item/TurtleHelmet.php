@@ -31,7 +31,7 @@ use pocketmine\entity\Living;
 class TurtleHelmet extends Armor{
 
 	public function onTickWorn(Living $entity) : bool{
-		if($entity instanceof Human && !$entity->isUnderwater()){
+		if($entity instanceof Human){
 			$entity->getEffects()->add(new EffectInstance(VanillaEffects::HASTE(), 1000, 1, false));
 			$entity->getEffects()->add(new EffectInstance(VanillaEffects::NIGHT_VISION(), 1000, 0, false));
 			return true;
