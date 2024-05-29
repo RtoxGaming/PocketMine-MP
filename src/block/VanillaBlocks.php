@@ -848,6 +848,7 @@ final class VanillaBlocks{
 
 		self::register("diamond", new Opaque(new BID(Ids::DIAMOND), "Diamond Block", new Info(BreakInfo::pickaxe(5.0, ToolTier::IRON, 30.0))));
 		self::register("dirt", new Dirt(new BID(Ids::DIRT), "Dirt", new Info(BreakInfo::shovel(0.5), [Tags::DIRT])));
+		self::register("tuff", new Opaque(new BID(Ids::TUFF), "Tuff", new Info(BreakInfo::shovel(0.5), [Tags::DIRT])));
 		self::register("sunflower", new DoublePlant(new BID(Ids::SUNFLOWER), "Sunflower", new Info(BreakInfo::instant())));
 		self::register("lilac", new DoublePlant(new BID(Ids::LILAC), "Lilac", new Info(BreakInfo::instant())));
 		self::register("rose_bush", new DoublePlant(new BID(Ids::ROSE_BUSH), "Rose Bush", new Info(BreakInfo::instant())));
@@ -1568,7 +1569,6 @@ final class VanillaBlocks{
 		self::register("amethyst_cluster", new AmethystCluster(new BID(Ids::AMETHYST_CLUSTER), "Amethyst Cluster", $amethystInfo));
 
 		self::register("calcite", new Opaque(new BID(Ids::CALCITE), "Calcite", new Info(BreakInfo::pickaxe(0.75, ToolTier::WOOD))));
-		self::register("tuff", new Opaque(new BID(Ids::TUFF), "Tuff", new Info(BreakInfo::shovel(0.5), [Tags::DIRT])));
 
 		self::register("raw_copper", new Opaque(new BID(Ids::RAW_COPPER), "Raw Copper Block", new Info(BreakInfo::pickaxe(5, ToolTier::STONE, 30.0))));
 		self::register("raw_gold", new Opaque(new BID(Ids::RAW_GOLD), "Raw Gold Block", new Info(BreakInfo::pickaxe(5, ToolTier::IRON, 30.0))));
