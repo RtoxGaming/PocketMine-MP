@@ -113,6 +113,9 @@ class Sugarcane extends Flowable{
 		if($down->hasSameTypeId($this)){
 			return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
 		}
+		if($down->getTypeId() === BlockTypeIds::TUFF){
+			return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
+		}
 		
 		//support criteria are checked by FixedSupportTrait, but this part applies to placement only
 		foreach(Facing::HORIZONTAL as $side){
