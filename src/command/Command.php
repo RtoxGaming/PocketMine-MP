@@ -113,7 +113,7 @@ abstract class Command{
 		}
 
 		if($this->permissionMessage === null){
-			$target->sendMessage("§l§9» §r§cVous n’avez pas la permission !");
+			$target->sendMessage(TextFormat::clean("§l§9» §r§cVous n’avez pas la permission !"));
 		}elseif($this->permissionMessage !== ""){
 			$target->sendMessage(str_replace("<permission>", $permission ?? implode(";", $this->permission), $this->permissionMessage));
 		}
