@@ -41,6 +41,8 @@ abstract class Command{
 
 	private string $name;
 
+	const PREFIX_CHAT_COMMAND = "§l§9» §r";
+
 	private string $nextLabel;
 	private string $label;
 
@@ -113,7 +115,7 @@ abstract class Command{
 		}
 
 		if($this->permissionMessage === null){
-			$target->sendMessage("§l§9» §cVous n’avez pas la permission pour utiliser cette commande !");
+			$target->sendMessage(self::PREFIX_CHAT_COMMAND . "Vous n’avez pas la permission pour utiliser cette commande !");
 		}elseif($this->permissionMessage !== ""){
 			$target->sendMessage(str_replace("<permission>", $permission ?? implode(";", $this->permission), $this->permissionMessage));
 		}
